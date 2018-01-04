@@ -20,10 +20,8 @@ def countMatches(c,a):
 for i in xrange(0,5):
    hid = datan[i]
    comment = data[i]
-   if len(d[hid]) != 0:
-      d[hid] = d[hid] + " "+ comment.lower()
-   else:
-      d[hid] = comment.lower()
+   d[hid] = d[hid] + " "+ comment.lower()
+
 
 for k,v  in d.viewitems():
    s = v.split()
