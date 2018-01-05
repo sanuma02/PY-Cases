@@ -28,7 +28,26 @@ While slicing the instruction to Python is to  grab everything from 0 up to 3. I
 - Last letter (one index behind 0 so it loops back around) --> s[-1]
 - Grab everything but the last letter --> s[:-1]
 - Grab everything, but go in step sizes of 2 --> s[::2]
-- Backwards --> s[::-1]
+- Backwards --> s[::-1] (for palindromes on pyv3 make sure to use s.casefold())
+
+String can be concatenated and multiply:
+```
+letter = 'z'
+letter*10
+-------
+Output:'zzzzzzzzzz'
+```
+**Basic Built-in String methods**
+
+- s.lower(),s.upper()
+- s.islower(), s.isupper()
+- s.count('p') -- How many time does 'p' appears on s
+- s.find('p') -- Find the index where 'p' is
+- s.capitalize()
+- s.endswith('p')
+- s.isalnum(), s.isalpha()
+- s.split() -- By default uses " ". Parameter can be used: 'hello'.split('e') --> ['h', 'llo']
+
 
 
 
