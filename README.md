@@ -16,11 +16,11 @@ In case "Classic division is needed on Python v3:
 ```
 3//2
 ```
-More details [here](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
-
 ###### Functions
 
 Map, Reduce, and Filter functions in Python 3 return iterators instead of lists (as in Python 2). To get a list for any of these functions in Python 3, you can just cast it as a list using list() around the function.
+
+More details [here](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
 
 ### String
 Strings are **immutable**. This means that once a string is created, the elements within it can not be changed or replaced.
