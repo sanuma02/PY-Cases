@@ -4,26 +4,25 @@ data = ["I could not get my dog","Location was good","location was not bad but n
 datan = ['1','1','2','2','2']
 words = ["Great","location","food"]
 
-d = defaultdict(list)
-x = zip(data,datan)
-print x
+d = defaultdict(str)
+x = zip(datan,data)
+
 
 for k,v in x:
-    d[v].append(k)
+    d[k] = d[k] + " " + v
     
-print d
-main = defaultdict(lambda: 0)
+print(d)
+main = []
 
-def Match(list_sentences, word):
-    q = 0
-    for s in list_sentences:
-        s = s.lower()
-        q += s.count(word.lower())
-    return q
+def Match(list_sentences, words):
+    result = 0
+    for word in words:
+      result += list_sentences.lower().count(word.lower())
+    return result
+  
+for k,v in d.items():
+  main.append((k,Match(v,words)))
 
-for k,v in d.iteritems():
-    for w in words:
-        main[k] +=  Match(v,w)
 
-print main
-print sorted(main.items(), key=lambda x: x[1], reverse=True)
+print(main)
+print(sorted(main, key=lambda x: x[1], reverse=True)) 
