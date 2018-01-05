@@ -18,4 +18,4 @@ In case "Classic division is needed on Python v3:
 ```
 3//2
 ```
-More details [here] (http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
+More details [here](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
