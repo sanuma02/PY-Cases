@@ -437,3 +437,90 @@ print('Day :', today.day) # Output Day : 18
  print('tomorrow - yesterday:', tomorrow - yesterday) #output 2 days, 0:00:00
  ```
 
+### Object Oriented Programming
+
+Define a class
+
+```
+class Dog(object):
+    
+    # Class Object Attribute
+    species = 'mammal'
+    
+    def __init__(self,breed,name):
+        self.breed = breed
+        self.name = name
+sam = Dog('Lab','Sam')
+```
+
+Methods
+
+```
+class Circle(object):
+    pi = 3.14
+
+    # Circle get instantiated with a radius (default is 1)
+    def __init__(self, radius=1):
+        self.radius = radius 
+
+    # Area method calculates the area. Note the use of self.
+    def area(self):
+        return self.radius * self.radius * Circle.pi
+
+    # Method for resetting Radius
+    def setRadius(self, radius):
+        self.radius = radius
+
+    # Method for getting radius (Same as just calling .radius)
+    def getRadius(self):
+        return self.radius
+        
+
+c = Circle()
+c.setRadius(2)
+print('Radius is: ',c.getRadius())
+print('Area is: ',c.area())
+```
+**Inheritance**
+```
+class Animal(object):
+    def __init__(self):
+        print "Animal created"
+
+    def whoAmI(self):
+        print "Animal"
+
+    def eat(self):
+        print "Eating"
+
+
+class Dog(Animal):
+    def __init__(self):
+        Animal.__init__(self)
+        print "Dog created"
+
+    def whoAmI(self):
+        print "Dog"
+
+    def bark(self):
+        print "Woof!"
+```
+**Special Methods**
+
+```
+class Book(object):
+    def __init__(self, title, author, pages):
+        print "A book is created"
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self):
+        return "Title:%s , author:%s, pages:%s " %(self.title, self.author, self.pages)
+
+    def __len__(self):
+        return self.pages
+
+    def __del__(self):
+        print "A book is destroyed"
+```
