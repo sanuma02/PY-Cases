@@ -79,6 +79,9 @@ They build lists on a different notation, one line for inside brackets
 It starts by the result you want to see on the list, for example x elevated to 2, the append is implicit
 ```
 lst= [x**2 for  x in xrange(1,4)] 
+# Check for even numbers in a range
+lst = [x for x in range(11) if x % 2 == 0]
+fahrenheit = [ ((float(9)/5)*temp + 32) for temp in Celsius ]
 ```
 ### Dictionary
 
