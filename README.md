@@ -669,7 +669,7 @@ num = re.sub(r'\D', "", phone)
 print "Phone Num : ", num
 ```
 
-** findall() **
+**findall()**
 
 ```
 
