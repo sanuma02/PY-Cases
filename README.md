@@ -172,6 +172,7 @@ adder(2,3) # will output 5
 ### Built-in Functions
 
 **Map**
+
 map() is a function that takes in two arguments: a function and a sequence iterable. In the form: map(function, sequence)
 ```
 F_temps = map(fahrenheit, lst)
@@ -187,17 +188,20 @@ map(lambda x,y:x+y,a,b)
 map(lambda x,y,z:x+y+z, a,b,c)
 ```
 **Reduce**
+
 The function reduce(function, sequence) continually applies the function to the sequence. It then returns a single value. Like [ function(function(s1, s2),s3), ... , sn ]
 ```
 lst =[47,11,42,13]
 reduce(lambda x,y: x+y,lst) # will output 113 --> (((47 + 11) + 42)+13)
 ```
 **Filter**
+
 The function filter(function, list) offers a convenient way to filter out all the elements of an iterable, for which the function returns True.
 ```
 filter(lambda x: x%2==0,lst)
 ```
 **Zip**
+
 zip() makes an iterator that aggregates elements from each of the iterables.
 Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.
 ```
@@ -216,6 +220,7 @@ zip(d1,d2) #output [('a', 'c'), ('b', 'd')] because simply iterating through the
 zip(d2,d1.values()) #  [('c', 1), ('d', 2)] mix keys and values
 ```
 **Enumerate**
+
 Enumerate allows you to keep a count as you iterate through an object. It does this by returning a tuple in the form (count,element), 
 enumerate() becomes particularly useful when you have a case where you need to have some sort of tracker.
 ```
@@ -226,6 +231,7 @@ for index,item in enumerate(lst):
     print item
 ```
 **all() and any()**
+
 all() and any() are built-in functions in Python that allow us to conveniently check for boolean matching in an iterable. all() will return True if all elements in an iterable are True
 ```
 lst = [True,True,False,True]
@@ -233,4 +239,35 @@ all(lst) #output False
 any(lst) #output True
 ```
 
+**Decorators**
+
+Decorators can be thought of as functions which modify the functionality of another function.
+EXMAPLE without @
+```
+
+def needDecorator():
+  print( 'I need Decorator!!!!')
+
+def heyIhaveADecorador(func):
+  
+  def IAMtheDecorator():
+    print('Decorating:')
+    func()
+    print('ALL DONE!')
+  return IAMtheDecorator
+  
+needDecorator()
+needDecorator = heyIhaveADecorador(needDecorator)
+needDecorator()
+```
+#EXMAPLE with @
+```
+
+@heyIhaveADecorador
+def needDecorator():
+  print( 'I need Decorator!!!!')
+  
+  
+needDecorator()
+```
 
