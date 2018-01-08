@@ -561,4 +561,42 @@ def askint():
         print val
 ```
 
+### Debugger
+
+The pdb module implements an interactive debugging environment for Python programs. It includes features to let you pause your program, look at the values of variables, and watch program execution step-by-step, so you can understand what your program actually does and find bugs in the logic.
+
+```
+
+import pdb
+
+x = [1,3,4]
+y = 2
+z = 3
+
+result = y + z
+print result
+
+# Set a trace using Python Debugger
+pdb.set_trace()
+
+result2 = y+x
+print result2
+```
+Use 'q' to quit
+
+### timeit
+
+timeit can be used to time how long your code is taking to run
+
+```
+import timeit
+# For loop
+timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+# List comprehension
+timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+# Map()
+timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+```
+
+### Regular Expressions
 
