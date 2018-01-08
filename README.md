@@ -600,3 +600,83 @@ timeit.timeit('"-".join(map(str, range(100)))', number=10000)
 
 ### Regular Expressions
 
+```
+import re
+# List of patterns to search for
+pattern = 'term1'
+
+# Text to parse
+text = 'This is a string with term1, but it does not have the other term.'
+
+match = re.search(pattern,  text)
+
+type(match) #Output _sre.SRE_Match
+```
+
+This Match object returned by the search() method is more than just a Boolean or None, it contains information about the match, including the original input string, the regular expression that was used and more
+
+```
+
+# Show start of match
+match.start()
+
+
+# Show start of match
+match.start()
+```
+
+**Groups**
+
+```
+import re
+
+line = "Cats are smarter than dogs";
+
+searchObj = re.search( r'(.*) are (.*?) .*', line, re.M|re.I)
+
+if searchObj:
+   print "searchObj.group() : ", searchObj.group()
+   print "searchObj.group(1) : ", searchObj.group(1)
+   print "searchObj.group(2) : ", searchObj.group(2)
+else:
+   print "Nothing found!!"
+```
+
+The re.search function returns a match object on success, none on failure. 
+
+group(num=0) matches the entire expression
+group 1 matches the expression on the first ()
+group 2 matches the next expression on ()
+
+
+Python offers two different primitive operations based on regular expressions: match checks for a match only at the beginning of the string, while search checks for a match anywhere in the string
+
+**Search and Replace**
+
+The re.sub method replaces all occurrences of the RE pattern in string with a replacement given, substituting all occurrences unless max provided. This method returns modified string. *re.sub(pattern, repl, string, max=0)*
+
+```
+import re
+
+phone = "2004-959-559 # This is Phone Number"
+
+# Delete Python-style comments
+num = re.sub(r'#.*$', "", phone)
+print "Phone Num : ", num
+
+# Remove anything other than digits
+num = re.sub(r'\D', "", phone)    
+print "Phone Num : ", num
+```
+
+** findall() **
+
+```
+
+# Returns a list of all matches
+re.findall('match','test phrase match is in middle')
+```
+
+Option Flags and Regular Expression Patterns
+
+All options available [here](http://www.tutorialspoint.com/python/python_reg_expressions.htm)
