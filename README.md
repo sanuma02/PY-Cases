@@ -157,7 +157,80 @@ Iteration through a File
 for line in open('test.txt'):
     print(line)
 ```
+### lambda expressions
 
+ad-hoc functions without needing to properly define a function using def. "anonymous" functions
+```
+square = lambda num: num**2
+square(2) # will output 4
+```
+```
+adder = lambda x,y : x+y
+adder(2,3) # will output 5
+```
 
+### Built-in Functions
+
+**Map**
+map() is a function that takes in two arguments: a function and a sequence iterable. In the form: map(function, sequence)
+```
+F_temps = map(fahrenheit, lst)
+F_temps = map(lambda x: (5.0/9)*(x - 32), lst)
+```
+map() can be applied to more than one iterable. The iterables have to have the same length.
+For instance, if we are working with two lists-map() will apply its lambda function to the elements of the argument lists, i.e. it first applies to the elements with the 0th index, then to the elements with the 1st index until the n-th index is reached.
+```
+a = [1,2,3,4]
+b = [5,6,7,8]
+c = [9,10,11,12]
+map(lambda x,y:x+y,a,b)
+map(lambda x,y,z:x+y+z, a,b,c)
+```
+**Reduce**
+The function reduce(function, sequence) continually applies the function to the sequence. It then returns a single value. Like [ function(function(s1, s2),s3), ... , sn ]
+```
+lst =[47,11,42,13]
+reduce(lambda x,y: x+y,lst) # will output 113 --> (((47 + 11) + 42)+13)
+```
+**Filter**
+The function filter(function, list) offers a convenient way to filter out all the elements of an iterable, for which the function returns True.
+```
+filter(lambda x: x%2==0,lst)
+```
+**Zip**
+zip() makes an iterator that aggregates elements from each of the iterables.
+Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables.
+```
+x = [1,2,3]
+y = [4,5,6,7,8]
+
+# Zip the lists together
+zip(x,y) # output [(1, 4), (2, 5), (3, 6)]
+```
+Zip is defined by the shortest iterable length
+```
+d1 = {'a':1,'b':2}
+d2 = {'c':4,'d':5}
+
+zip(d1,d2) #output [('a', 'c'), ('b', 'd')] because simply iterating through the dictionaries will result in just the key
+zip(d2,d1.values()) #  [('c', 1), ('d', 2)] mix keys and values
+```
+**Enumerate**
+Enumerate allows you to keep a count as you iterate through an object. It does this by returning a tuple in the form (count,element), 
+enumerate() becomes particularly useful when you have a case where you need to have some sort of tracker.
+```
+lst = ['a','b','c']
+
+for index,item in enumerate(lst):
+    print index
+    print item
+```
+**all() and any()**
+all() and any() are built-in functions in Python that allow us to conveniently check for boolean matching in an iterable. all() will return True if all elements in an iterable are True
+```
+lst = [True,True,False,True]
+all(lst) #output False
+any(lst) #output True
+```
 
 
