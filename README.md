@@ -80,6 +80,45 @@ It starts by the result you want to see on the list, for example x elevated to 2
 ```
 lst= [x**2 for  x in xrange(1,4)] 
 ```
+### Dictionary
+
+**Basic Dictionary methods**
+```
+d = {'key1':1,'key2':2,'key3':3}
+print(d.keys())
+print(d.values())
+print(d.items())
+```
+Python 2 will have available methods d.iterkeys(), d.itervalues() and d.iteritems():
+
+**Dictionary Comprehensions**
+```
+d= {x:x**2 for x in range(10)}
+```
+
+### Tuple
+In Python tuples are very similar to lists, however, unlike lists they are **immutable** meaning they can not be changed. You would use tuples to present things that shouldn't be changed.
+
+```
+t = (1,2,3)
+t = ('one',2)
+```
+len(t), indexing and slicing are available for tuples just like in lists, however methods like append or extend are not
+
+**Basic Tuple Methods**
+```
+# Use .index to enter a value and return the index
+t.index('one')
+```
+```
+# Use .count to count the number of times a value appears
+t.count('one')
+```
+
+
+
+
+
 
 
 
