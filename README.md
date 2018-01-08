@@ -239,12 +239,16 @@ all(lst) #output False
 any(lst) #output True
 ```
 
+A quick note for Python 3 users for the Map, Reduce, and Filter functions. These functions return iterators in Python 3 instead of lists (as in Python 2). To get a list for any of these functions in Python 3, you can just cast it as a list using list() around the function.
+
+Also in Python 3, reduce is imported from functools.
+
 **Decorators**
 
 Decorators can be thought of as functions which modify the functionality of another function.
 EXMAPLE without @
-```
 
+```
 def needDecorator():
   print( 'I need Decorator!!!!')
 
@@ -261,13 +265,120 @@ needDecorator = heyIhaveADecorador(needDecorator)
 needDecorator()
 ```
 #EXMAPLE with @
-```
 
+```
 @heyIhaveADecorador
 def needDecorator():
   print( 'I need Decorator!!!!')
   
   
 needDecorator()
+```
+
+### Iterators and Generators
+
+Generators allow us to generate as we go along, instead of holding everything in memory.
+In Python 2 xrange() is a generator
+
+Generator functions allow us to write a function that can send back a value and then later resume to pick up where it left off. The main difference in syntax will be the use of a yield statement.
+
+In most aspects, a generator function will appear very similar to a normal function. The main difference is when a generator function is compiled they become an object that support an iteration protocol. That means when they are called in your code the don't actually return a value and then exit, the generator functions will automatically suspend and resume their execution and state around the last point of value generation.
+
+```
+# Generator function for the cube of numbers (power of 3)
+def gencubes(n):
+    for num in range(n):
+        yield num**3
+```
+Generators are best for calculating large sets of results (particularly in calculations that involve loops themselves) in cases where we don’t want to allocate the memory for all of the results at the same time.
+
+**next() and iter()**
+The **next** function allows us to access the next element in a sequence. Lets check it out:
+
+```
+g = gencubes()
+next(g) #output 0
+next(g) #output 1
+```
+
+After yielding all the values next() caused a StopIteration error. What this error informs us of is that all the values have been yielded.
+
+There are objects that are iterables but are not iterators like a string, you can iterate a string and get every word, however the object is not an iterator meaning you can not call the next method on them
+
+The **iter()** function allows to convert objects that are iterable into iterators themselves!
+
+```
+s = 'hello'
+s_iter = iter(s)
+next(s_iter)
+next(s_iter)
+```
+
+### Collections Module
+
+**Counter**
+
+Counter is a dict subclass which helps count hash-able objects. Inside of it elements are stored as dictionary keys and the counts of the objects are stored as the value.
+
+```
+from collections import Counter
+#Numbers
+l = [1,2,2,2,2,3,3,3,1,2,1,12,3,2,32,1,21,1,223,1]
+# Output --- Counter({1: 6, 2: 6, 3: 4, 32: 1, 12: 1, 21: 1, 223: 1})
+#Letters
+Counter('aabsbsbsbhshhbbsbs')
+# Output --- Counter({'b': 7, 's': 6, 'h': 3, 'a': 2})
+#Words
+s = 'How many times does each word show up in this sentence word times each each word'
+words = s.split()
+Counter(words)
+# Output --- Counter({'word': 3, 'each': 3, 'times': 2, 'show': 1, 'this': 1, 'many': 1, 'in': 1, 'up': 1, 'How': 1, 'does': 1, 'sentence': 1})
+```
+
+**Counter Common tasks**
+
+- c.most_common(2) # [('word', 3), ('each', 3)]
+- c.clear()                       # reset all counts
+- list(c)                         # list unique elements
+- set(c)                          # convert to a set
+- dict(c)                         # convert to a regular dictionary
+- c.items()                       # convert to a list of (elem, cnt) pairs
+- Counter(dict(list_of_pairs))    # convert from a list of (elem, cnt) pairs
+- c.most_common()[:-n-1:-1]       # n least common elements
+- c += Counter()                  # remove zero and negative counts
+
+**defaultdict**
+
+defaultdict is a dictionary like object which provides all methods provided by dictionary but takes first argument (default_factory) as default data type for the dictionary
+
+```
+from collections import defaultdict
+d  = defaultdict(object)
+d  = defaultdict(list)
+d  = defaultdict(str)
+d = defaultdict(lambda: 0) # initialize with default value 0
+
+```
+A defaultdict will never raise a KeyError. Any key that does not exist gets the value returned by the default factory.
+
+**OrderedDict**
+
+An OrderedDict is a dictionary subclass that remembers the order in which its contents are added.
+A regular dict looks at its contents when testing for equality. An OrderedDict also considers the order the items were added.
+
+```
+print 'Dictionaries are equal? '
+
+d1 = collections.OrderedDict()
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+
+d2 = collections.OrderedDict()
+
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print(d1 == d2) #Output Fa;se (a regular dict will say True)
 ```
 
