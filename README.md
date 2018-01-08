@@ -114,10 +114,46 @@ t.index('one')
 # Use .count to count the number of times a value appears
 t.count('one')
 ```
+### Set
+Sets are an unordered collection of unique elements. We can construct them by using the set() function
+```
+x = set()
+x.add(1) # add an element that already exists wont do anything
+print(x) # will output {1}, sets can be think of as dictionary with only keys, but is not really a dictionary
+```
+**Basic Set Methods**
 
+- s.add(element)
+- s.clear() -- Removes all elements from the set
+- s.copy() -- Returns a copy of the set. Note it is a copy, so changes to the original don't effect the copy
+- s.difference(sc) -- Returns the difference of two or more sets
+- set1.difference_update(set2) -- Returns set1 after removing elements found in set2
+- s.discard(2) -- Removes an element from a set if it is a member.If the element is not a member, does nothing
+- s1.intersection(s2) -- Returns the intersection of two or more sets as a new set.(elements that are common to all of the sets)
+- s1.intersection_update(s2) -- Returns set1 with the intersection of itself and another
+- s1.isdisjoint(s2) -- This method will return True if two sets have a null intersection
+- s1.issubset(s2) -- This method reports whether another set contains this set
+- s2.issuperset(s1) -- This method will report whether this set contains another set
+- s1.union(s2) -- Returns the union of two sets (i.e. all elements that are in either set)
+- s1.update(s2) -- Update a set with the union of itself and other
 
-
-
+### Files
+Python has a built-in open function that allows us to open and play with basic file types.
+```
+# Open text.txt file
+my_file = open('test.txt')
+my_file.read() #this leaves the cursor at the end fo the file, my_file.seek(0) can be used to return to the top of the file
+```
+```
+# Write to the file
+my_file = open('test.txt','w+')
+my_file.write('This is a new line')
+```
+Iteration through a File
+```
+for line in open('test.txt'):
+    print(line)
+```
 
 
 
