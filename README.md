@@ -379,6 +379,61 @@ d2 = collections.OrderedDict()
 d2['b'] = 'B'
 d2['a'] = 'A'
 
-print(d1 == d2) #Output Fa;se (a regular dict will say True)
+print(d1 == d2) #Output False (a regular dict will say True)
 ```
+
+**namedtuple**
+Work like a quick way of creating a new object/class type with some attribute fields.
+
+```
+from collections import namedtuple
+
+Dog = namedtuple('Dog','age breed name')
+sam = Dog(age=2,breed='Lab',name='Sammy')
+frank = Dog(age=2,breed='Shepard',name="Frankie")
+
+print(sam)
+print(sam.age)
+print(frank.name)
+```
+First pass the object type name (Dog) and then pass a string with the variety of fields as a string with spaces between the field names.
+
+### datetime
+**time**
+
+```
+import datetime
+
+t = datetime.time(4, 20, 1)
+# Lets show the different compoenets
+
+print(t) # Output 04:20:01
+print('hour  :', t.hour) # Output hour  : 4
+print('minute:', t.minute) # Output minute: 20
+print('second:', t.second) # Output second: 1
+print('microsecond:', t.microsecond) # Output microsecond: 0
+print('tzinfo:', t.tzinfo) # Output tzinfo: None
+
+```
+ **date**
+ 
+ ```
+ today = datetime.date.today()
+print(today) # Output 2015-09-18
+print('ctime:', today.ctime()) # Output ctime: Fri Sep 18 00:00:00 2015
+print('ordinal:', today.toordinal()) # Output ordinal: 735859
+print('Year:', today.year) # Output Year: 2015
+print('Mon :', today.month) # Output Mon : 9
+print('Day :', today.day) # Output Day : 18
+```
+ **timedelta**
+ 
+ ```
+ today = datetime.date.today()
+ one_day = datetime.timedelta(days=1)
+ yesterday = today - one_day
+ tomorrow = today + one_day
+ 
+ print('tomorrow - yesterday:', tomorrow - yesterday) #output 2 days, 0:00:00
+ ```
 
