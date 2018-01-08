@@ -488,7 +488,7 @@ class Animal(object):
         print "Animal created"
 
     def whoAmI(self):
-        print "Animal"
+        print "Animal"      
 
     def eat(self):
         print "Eating"
@@ -524,3 +524,41 @@ class Book(object):
     def __del__(self):
         print "A book is destroyed"
 ```
+
+### Errors and Exception Handling
+
+**try and except**
+
+```
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except:
+    # This will check for any exception and then execute this print statement
+   print "Error: Could not find file or read data"
+else <optional exception id>:
+   print "Content written successfully"
+   f.close()
+```
+
+**finally**
+
+The finally: block of code will always be run regardless if there was an exception in the try code block. 
+
+```
+def askint():
+    while True:
+        try:
+            val = int(raw_input("Please enter an integer: "))
+        except:
+            print "Looks like you did not enter an integer!"
+            continue
+        else:
+            print 'Yep thats an integer!'
+            break
+        finally:
+            print "Finally, I executed!"
+        print val
+```
+
+
