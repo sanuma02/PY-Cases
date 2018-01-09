@@ -47,6 +47,8 @@ Output:'zzzzzzzzzz'
 - s.find('p') -- Find the index where 'p' is
 - s.capitalize()
 - s.endswith('p')
+- s.replace(" ","") -- Removes spaces
+- sorted(s1) 
 - s.isalnum(), s.isalpha()
 - s.split() -- By default uses " ". Parameter can be used: 'hello'.split('e') --> ['h', 'llo']
 
