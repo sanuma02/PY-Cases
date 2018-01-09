@@ -51,6 +51,7 @@ Output:'zzzzzzzzzz'
 - sorted(s1) 
 - s.isalnum(), s.isalpha()
 - s.split() -- By default uses " ". Parameter can be used: 'hello'.split('e') --> ['h', 'llo']
+- s.strip() -- will remove all the leading and trailing whitespace
 
 **Print Formatting**
 ```
