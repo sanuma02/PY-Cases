@@ -683,3 +683,7 @@ re.findall('match','test phrase match is in middle')
 Option Flags and Regular Expression Patterns
 
 All options available [here](http://www.tutorialspoint.com/python/python_reg_expressions.htm)
+
+### Priority Queue
+
+Works like a regular queue, but the items are orderes based on their priority. Heap are used for this.
