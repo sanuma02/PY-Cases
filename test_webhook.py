@@ -23,5 +23,4 @@ for file in os.listdir():
         # file_path = f"{path}\{file}"
   
         # call read text file function
-        print("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")
         read_text_file(file)
