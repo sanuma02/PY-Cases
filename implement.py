@@ -1,12 +1,7 @@
 
 """
 Exercise G starter — a SalesTracker class that's already working, with
-two methods left as TODOs for the candidate to implement. Give the
-candidate ONLY this file.
-
-Run with: python starter.py
-(It'll run fine until it hits the two NotImplementedError calls at the
-bottom — that's expected; those are what the candidate needs to build.)
+two methods left as TODOs
 """
 
 
