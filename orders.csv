@@ -1,0 +1,11 @@
+order_id,customer_email,amount,status
+1001,alice@example.com,49.99,completed
+1002,bob@example.com,120.00,completed
+1003,,75.50,completed
+1004,carla@example.com,not_a_number,completed
+1005,dave@example.com,15.25,pending
+1006,eve@example.com,,completed
+1007,frank@example.com,200.00,refunded
+1008,grace@example.com,60.00,completed
+1009,heidi@example.com,-10.00,completed
+1010,ivan@example.com,33.33
